@@ -1,21 +1,20 @@
-import { embed, embedMany } from 'ai';
-import { bedrock } from '@ai-sdk/amazon-bedrock';
+import { BedrockRuntimeClient, InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
 
-// Amazon Titan Text Embeddings V2 — 1024 dimensions, no extra API key needed
-const EMBEDDING_MODEL = bedrock.textEmbeddingModel('amazon.titan-embed-text-v2:0');
+const client = new BedrockRuntimeClient({ region: process.env.AWS_REGION ?? 'us-east-1' });
 
 export async function embedText(text: string): Promise<number[]> {
-  const { embedding } = await embed({
-    model: EMBEDDING_MODEL,
-    value: text,
-  });
-  return embedding;
+  const response = await client.send(
+    new InvokeModelCommand({
+      modelId: 'amazon.titan-embed-text-v2:0',
+      contentType: 'application/json',
+      accept: 'application/json',
+      body: JSON.stringify({ inputText: text }),
+    })
+  );
+  const result = JSON.parse(new TextDecoder().decode(response.body)) as { embedding: number[] };
+  return result.embedding;
 }
 
 export async function embedTexts(texts: string[]): Promise<number[][]> {
-  const { embeddings } = await embedMany({
-    model: EMBEDDING_MODEL,
-    values: texts,
-  });
-  return embeddings;
+  return Promise.all(texts.map(embedText));
 }

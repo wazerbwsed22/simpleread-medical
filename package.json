@@ -11,6 +11,7 @@
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "^4.0.77",
     "@ai-sdk/anthropic": "^3.0.58",
+    "@aws-sdk/client-bedrock-runtime": "^3.1006.0",
     "@langchain/textsplitters": "^1.0.1",
     "ai": "^6.0.116",
     "langchain": "^1.2.30",
