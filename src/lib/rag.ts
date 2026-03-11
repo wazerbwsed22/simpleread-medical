@@ -8,7 +8,7 @@ import { embedText, embedTexts } from './embeddings';
 import { vectorStore } from './vectorStore';
 import { parseAndChunkFile } from './documentParser';
 
-const client = new BedrockRuntimeClient({ region: process.env.AWS_REGION ?? 'us-east-1', credentials: {
+const client = new BedrockRuntimeClient({ region: process.env.AWS_REGION_BEDROCK ?? 'us-east-1', credentials: {
   accountId: process.env.AWS_ACCOUNT_ID ?? '',
   accessKeyId: process.env.AWS_ACCESS_KEY_ID_BEDROCK ?? '',
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_BEDROCK ?? '',
