@@ -222,7 +222,7 @@ export default function ChatPage() {
                 className="bg-teal-600 text-white p-2.5 rounded-lg hover:bg-teal-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 title="Send message"
               >
-                <SendHorizontal className="w-5 h-5" />
+                <SendHorizontal className="w-5 h-5 cursor-pointer" />
               </button>
             </div>
           </div>
