@@ -1,0 +1,16 @@
+---
+description: "TypeScript and Tailwind CSS enforcement"
+globs:
+alwaysApply: true
+---
+
+# Tech Stack
+
+## TypeScript
+- Always use TypeScript (`.ts` for logic, `.tsx` for components) — never plain `.js` or `.jsx`
+- All new files must be TypeScript
+
+## Tailwind CSS
+- Use Tailwind CSS for all styling — no CSS modules, styled-components, or inline `style` objects
+- This project uses Tailwind CSS v4 with `@tailwindcss/postcss`
+- Global styles live in `src/app/globals.css`

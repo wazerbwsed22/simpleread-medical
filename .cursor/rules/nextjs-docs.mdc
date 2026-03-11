@@ -1,0 +1,22 @@
+---
+description: "Next.js 16 and React 19 framework reference"
+globs:
+alwaysApply: true
+---
+
+# Next.js & React
+
+## Versions
+- Next.js **16.1.6** with the App Router (`src/app/`)
+- React **19.2.3**
+- Package manager: **pnpm**
+
+## Documentation
+- Canonical docs: https://nextjs.org/docs
+- Always reference these docs for API usage, conventions, and best practices
+
+## Conventions
+- Prefer React Server Components by default; add `"use client"` only when client interactivity is needed
+- Use `next/image` for images, `next/font` for fonts, and `next/link` for navigation
+- Follow App Router file conventions: `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `route.ts`
+- Prefer Route Handlers (`app/**/route.ts`) for API calls over Server Actions
