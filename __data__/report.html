@@ -1,0 +1,2624 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- Do NOT edit this HTML directly: it was generated via an XSLT transformation from a CDA Release 2 or 3 XML document. -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>C-CDA R2.1 Patient Record: Aaron697 Brekke496 (September 23, 2019, 07:22:41AM)</title>
+<!-- General CSS -->
+    <style type="text/css" media="all">
+                    *{
+                        font-family: Verdana, Tahoma, sans-serif;
+                        font-size: 9pt;
+                    }
+                    body{
+                        padding: 2px;
+                        color: #003366;
+                        background-color: white;
+                        font-size: 9pt;
+                    }
+                    #documentheader,
+                    #documentbody,
+                    #documentfooter{
+                        width: 100%;
+                    }
+                    #documentheader{
+                        border-bottom: 1px solid grey;
+                        margin-bottom: 1em;
+                    }
+                    #documentfooter{
+                        border-top: 1px solid grey;
+                        margin-top: 1em;
+                    }
+                    a{
+                        color: #003366;
+                        background-color: white;
+                    }
+                    h1{
+                        font-size: 12pt;
+                        font-weight: bold;
+                    }
+                    h1.title{
+                        text-align: center;
+                    }
+                    h2{
+                        font-size: 11pt;
+                        font-weight: bold;
+                    }
+                    h3{
+                        font-size: 10pt;
+                        font-weight: bold;
+                    }
+                    h4{
+                        font-size: 9pt;
+                        font-weight: bold;
+                    }
+                    h5{
+                        font-size: 9pt;
+                        font-weight: bold;
+                    }
+                    h6{
+                        font-size: 9pt;
+                        font-weight: bold;
+                    }
+                    hr{
+                        width: 100%;
+                    }
+                    span {
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                        display: inline; /* IE8 hack: would go to next line otherwise */
+                    }
+                    table{
+                        line-height: 10pt;
+                        width: 100%;
+                    }
+                    thead tr, th{
+                        background-color: LightGrey;
+                    }
+                    tbody tr{
+                        background-color: #f2f2f2;
+                    }
+                    td{
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                        padding: 0.1cm 0.2cm;
+                        vertical-align: top;
+                    }
+                    .table_simple{
+                        width: auto;
+                        color: inherit;
+                        background-color: inherit;
+                    }
+                    .table_simple td{
+                        padding: 0;
+                    }
+                    .table_simple td.td_label{
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                        font-weight: inherit;
+                        font-style: italic;
+                        padding-right: 0.2cm;
+                    }
+                    .header_table{
+                        border: 1pt solid #00008b;
+                    }
+                    .narr_table{
+                        width: 100%;
+                        margin: 0.3em 0;
+                    }
+                    .narr_tr{
+                        //background-color: #ffffcc;
+                    }
+                    .narr_th{
+                        background-color: LightGrey;
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                    }
+                    .narr_footnote{
+                        font-size: 8pt;
+                        font-style: italic;
+                    }
+                    .td_label{
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                        font-weight: bold;
+                        background-color: LightGrey;
+                    }
+                    .td_label_width{
+                        width: 20%;
+                    }
+                    .span_label{
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                        font-weight: bold;
+                    }
+                    .span_value{
+                        font-size: 9pt; /* IE8 hack: doesn't understand inheritance */
+                        font-weight: normal;
+                    }
+                    .revision_insert{
+                        text-decoration: underline overline;
+                    }
+                    .revision_insert_final{
+                    }
+                    .revision_delete{
+                        text-decoration: line-through;
+                    }
+                    .revision_delete_final{
+                        display: none;
+                    }
+                    .span_button {
+                        display: table-cell;
+                        cursor: pointer;
+                        border: 2pt inset #585858;
+                        border-radius: 15px;
+                        -moz-border-radius: 15px;
+                        padding: 0.1cm 0.2cm;
+                        background-color: #f2f2f2;
+                        font-weight: bold;
+                        vertical-align: baseline;
+                        width: 150px;
+                    }
+                    .warning-sign {
+                        border: 1px solid red;
+                        background-color: yellow;
+                        margin: 1em 0.5em;
+                    }
+                    div.separator {
+                        height: 1em;
+                    }
+                    div.caption {
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                </style>
+<!-- Stylecode CSS -->
+    <style type="text/css" media="all">
+                    .Bold{
+                        font-weight: bold;
+                    }
+                    .Italics{
+                        font-style: italic;
+                    }
+                    .Underline{
+                        text-decoration: underline;
+                    }
+                    .Emphasis{
+                        font-weight: bold;
+                        font-style: italic;
+                    }
+                    .Lrule{
+                        border-left-width: 2px;
+                        border-left-style: solid;
+                    }
+                    .Rrule{
+                        border-right-width: 2px;
+                        border-right-style: solid;
+                    }
+                    .Toprule{
+                        border-top-width: 2px;
+                        border-top-style: solid;
+                    }
+                    .Botrule{
+                        border-bottom-width: 2px;
+                        border-bottom-style: solid;
+                    }
+                    .Arabic{
+                        list-style: arabic;
+                    }
+                    .LittleRoman{
+                        list-style: lower-roman;
+                    }
+                    .BigRoman{
+                        list-style: upper-roman;
+                    }
+                    .LittleAlpha{
+                        list-style: lower-alpha;
+                    }
+                    .BigAlpha{
+                        list-style: upper-alpha
+                    }
+                    .Disc{
+                        list-style: disc;
+                    }
+                    .Circle{
+                        list-style: circle;
+                    }
+                    .Square{
+                        list-style: square;
+                    }</style>
+<!-- Section Button Toggle CSS -->
+    <style type="text/css" media="screen">
+                    div.button.expandCollapse {
+                        float: left;
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+                </style>
+<!-- Revision Toggle CSS -->
+    <style type="text/css" media="print">
+                    button, 
+                    div.button,
+                    #buttontable {
+                        display: none;
+                    }
+                    div.section-content {
+                        display: block !important;
+                    }
+                    .print_visible {
+                        display: block;
+                        float: none;
+                        margin-right: 0;
+                    }
+                </style>
+<!-- Table of Contents CSS -->
+    <style type="text/css" media="screen">
+                    #nav, #nav ul {
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                    }
+                    
+                    #nav li {
+                        float: left;
+                        width: 300px;
+                    }
+                    #nav ul {
+                        position: absolute;
+                        width: 300px;
+                        left: -1000px;
+                    }
+                    #nav li ul li ul {
+                        display: none;
+                    }
+                    
+                    #nav li ul li:hover > ul {
+                        display: block;
+                        position: absolute;
+                        left: 50px !important;
+                    }
+                    #nav li ul li:hover > ul > li > a {
+                        border: 1px solid #585858;
+                    }
+                    
+                    #nav li:hover ul, #nav li.ie_does_hover ul {
+                        left: auto;
+                        background-position: 0 0;
+                    }
+                    
+                    #nav * a {
+                        display: block;
+                        padding: 2px 8px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        font-size: 11px;
+                    }
+                    
+                    #nav ul * a {
+                        font-weight: bold;
+                        color: #585858;
+                        background-color: #f2f2f2;
+                        cursor: pointer;
+                    }
+                    
+                    #nav ul ul a:link, #nav ul ul a:visited {
+                        font-weight: normal;
+                        color: #585858;
+                        background-color: #f2f2f2;
+                        cursor: pointer;
+                    }
+                    
+                    #nav * li a:hover, #nav * li a:active,
+                    #nav * li * li a:hover, #nav * li * li a:active {
+                        /*font-weight: normal;*/
+                        color: white;
+                        background-color: #585858;
+                        cursor: pointer;
+                    }
+                    
+                    #nav * li {
+                        border-left: 2px solid white;
+                    }
+                    
+                    #nav * ul li {
+                        border-top: 2px solid white;
+                        border-left: 0;
+                    }
+                    
+                    /* IE only hack */
+                    * html ul li, * html ul ul li{
+                        border-bottom: 2px solid white;
+                    }
+                    
+                    * html ul ul li{
+                        border-top: 0;
+                    }
+                    /* End IE only hack */
+                </style>
+<!-- Javascript for Revisions switch -->
+    <script type="text/javascript">var gStringCollapse = "Collapse"; var gStringExpand = "Expand";
+                        function expandAllSections() {
+                            var toggleButtons = document.getElementsByClassName("expandCollapse");
+                            if (toggleButtons != null) {
+                                var i = 0;
+                                while (i != toggleButtons.length) {
+                                    expandSection(toggleButtons[i]);
+                                    i++;
+                                }
+                            }
+                            toggle('sectionsToggleExpand');
+                            toggle('sectionsToggleCollapse');
+                        }
+                        function expandSection(sectionTitleButton) {
+                            sectionTitleButton.title = gStringCollapse;
+                            sectionTitleButton.innerText = '▼';
+                            sectionTitleButton.onclick = function (){collapseSection(this);};
+                            var sectionContent = sectionTitleButton.parentElement.parentElement.children[1]
+                            if (sectionContent != null) {
+                                sectionContent.style.display = '';
+                            }
+                        }
+                        function collapseAllSections() {
+                            var toggleButtons = document.getElementsByClassName("expandCollapse");
+                            if (toggleButtons != null) {
+                                var i = 0;
+                                while (i != toggleButtons.length) {
+                                    collapseSection(toggleButtons[i]);
+                                    i++;
+                                }
+                            }
+                            toggle('sectionsToggleExpand');
+                            toggle('sectionsToggleCollapse');
+                        }
+                        function collapseSection(sectionTitleButton) {
+                            sectionTitleButton.title = gStringExpand;
+                            sectionTitleButton.innerText = '▶';
+                            sectionTitleButton.onclick = function (){expandSection(this);};
+                            var sectionContent = sectionTitleButton.parentElement.parentElement.children[1]
+                            if (sectionContent != null) {
+                                sectionContent.style.display = 'none';
+                            }
+                        }
+                        function showReviewMarks() {
+                            var allHTMLTags=document.getElementsByTagName("*");
+                            for (i in allHTMLTags) {
+                                //Get all tags with the specified class name.
+                                if (allHTMLTags[i].className=='revision_insert_final') {
+                                    allHTMLTags[i].className = 'revision_insert';
+                                }
+                                if (allHTMLTags[i].className=='revision_delete_final') {
+                                    allHTMLTags[i].className = 'revision_delete';
+                                }
+                            }
+                            toggle('revisionToggleOn');
+                            toggle('revisionToggleOff');
+                        }
+                        function hideReviewMarks() {
+                            var allHTMLTags=document.getElementsByTagName("*");
+                            for (i in allHTMLTags) {
+                                //Get all tags with the specified class name.
+                                if (allHTMLTags[i].className=='revision_insert') {
+                                    allHTMLTags[i].className = 'revision_insert_final';
+                                }
+                                if (allHTMLTags[i].className=='revision_delete') {
+                                    allHTMLTags[i].className = 'revision_delete_final';
+                                }
+                            }
+                            toggle('revisionToggleOn');
+                            toggle('revisionToggleOff');
+                        }
+                        function toggle(obj) {
+                            var el = document.getElementById(obj);
+                            el.style.display = (el.style.display != 'none' ? 'none' : '' );
+                        }
+                        </script>
+<!-- Javascript for Table of Contents menu -->
+    <script type="text/javascript">
+                        sfHover = function() {
+                            var sfEls = document.getElementById("nav").getElementsByTagName("li");
+                            for (i in sfEls) {
+                                sfEls[i].onmouseover=function() {
+                                    this.className+=" ie_does_hover";
+                                }
+                                sfEls[i].onmouseout=function() {
+                                    this.className=this.className.replace(new RegExp(" ie_does_hover"), "");
+                                }
+                            }
+                        }
+                        if (window.attachEvent) window.attachEvent("onload", sfHover);
+                    </script>
+  </head>
+  <body>
+    <div id="documentheader">
+      <a id="_toc"> </a>
+      <h1 class="title">C-CDA R2.1 Patient Record: Aaron697 Brekke496 (September 23, 2019, 07:22:41AM)</h1>
+      <table class="header_table">
+        <tbody>
+          <tr>
+            <td class="td_label">Patient</td>
+            <td>
+              <span class="span_value">Aaron697  BREKKE496</span>
+              <span style="float: right; margin-left: 1em;">
+                <span>
+                  <span class="span_label">Date of Birth: </span>
+                  <span class="span_value">December  10, 1945, 06:22:41AM<span title="At document creation time"> (73yr)</span></span>
+                </span>
+                <span class="span_label">Gender: </span>
+                <span class="span_value">M</span>
+              </span>
+              <span style="float: right;" class="print_visible">
+                <span class="span_label">Patient-ID: </span>
+                <span class="span_value">
+                  <span title="https://github.com/synthetichealth/synthea">2fa15bc7-8866-461a-9000-f739e425860a (2.16.840.1.113883.19.5)</span>
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="td_label">Documentation Of</td>
+            <td>Care provision, <span class="span_label">Date/Time: </span><span class="span_value">from December  10, 1945, 06:22:41AM to September  23, 2019, 07:22:41AM</span></td>
+          </tr>
+          <tr>
+            <td class="td_label">Author</td>
+            <td><span class="span_value">https://github.com/synthetichealth/synthea</span>, <span class="span_label">Organization: </span><span class="span_value">PCP116891</span>, <span class="span_label">Authored On: </span><span class="span_value">September  23, 2019, 07:22:41AM</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="buttontable">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="width: 35%; background-color: white;">
+                <ul id="nav">
+                  <li style="list-style: none;">
+                    <div class="span_button">Table of Contents ∇</div>
+                    <ul>
+                      <li>
+                        <a href="#section_1">Allergies (no information)</a>
+                      </li>
+                      <li>
+                        <a href="#section_2">Medications</a>
+                      </li>
+                      <li>
+                        <a href="#section_3">Diagnostic Results</a>
+                      </li>
+                      <li>
+                        <a href="#section_4">Problems</a>
+                      </li>
+                      <li>
+                        <a href="#section_5">Surgeries</a>
+                      </li>
+                      <li>
+                        <a href="#section_6">Encounters</a>
+                      </li>
+                      <li>
+                        <a href="#section_7">Vital Signs</a>
+                      </li>
+                      <li>
+                        <a href="#section_8">Immunizations</a>
+                      </li>
+                      <li>
+                        <a href="#section_9">Plan of Care</a>
+                      </li>
+                      <li>
+                        <a href="#section_10">Imaging Studies</a>
+                      </li>
+                      <li>
+                        <a href="#section_11">Social History</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td style="background-color: white;">
+                <div id="sectionsToggleExpand" style="display: none;" class="span_button" onclick="expandAllSections();">Expand All</div>
+                <div id="sectionsToggleCollapse" class="span_button" onclick="collapseAllSections();">Collapse All</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="documentbody">
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_1" title="Allergy List">Allergies</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>There are no current allergies at the time of this document's creation.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_2" title="History of medication use">Medications</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-06-20T07:22:41-04:00</td>
+          <td id="medications-desc-1">Ibuprofen 200 MG Oral Tablet</td>
+          <td id="medications-code-1">RxNorm 310965</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_3" title="Results">Diagnostic Results</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="reports-desc-1">Basic Metabolic Panel</td>
+          <td id="reports-code-1">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="reports-desc-2">Basic Metabolic Panel</td>
+          <td id="reports-code-2">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="reports-desc-3">Lipid Panel</td>
+          <td id="reports-code-3">LOINC 57698-3</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-4">Basic Metabolic Panel</td>
+          <td id="reports-code-4">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-5">Basic Metabolic Panel</td>
+          <td id="reports-code-5">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-6">Complete blood count (hemogram) panel - Blood by Automated count</td>
+          <td id="reports-code-6">LOINC 58410-2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-7">Basic Metabolic Panel</td>
+          <td id="reports-code-7">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-8">Lipid Panel</td>
+          <td id="reports-code-8">LOINC 57698-3</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-9">Basic Metabolic Panel</td>
+          <td id="reports-code-9">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-10">Basic Metabolic Panel</td>
+          <td id="reports-code-10">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-11">Basic Metabolic Panel</td>
+          <td id="reports-code-11">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-12">Lipid Panel</td>
+          <td id="reports-code-12">LOINC 57698-3</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-13">Basic Metabolic Panel</td>
+          <td id="reports-code-13">LOINC 51990-0</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-14">Complete blood count (hemogram) panel - Blood by Automated count</td>
+          <td id="reports-code-14">LOINC 58410-2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="reports-desc-15">Basic Metabolic Panel</td>
+          <td id="reports-code-15">LOINC 51990-0</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_4" title="Problem list">Problems</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>1965-11-15T06:22:41-05:00</td>
+          <td></td>
+          <td id="conditions-desc-1">Cardiac Arrest</td>
+          <td id="conditions-code-1">SNOMED-CT 410429000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>1965-11-15T06:22:41-05:00</td>
+          <td></td>
+          <td id="conditions-desc-2">History of cardiac arrest (situation)</td>
+          <td id="conditions-code-2">SNOMED-CT 429007001</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>1977-02-21T06:22:41-05:00</td>
+          <td></td>
+          <td id="conditions-desc-3">Body mass index 30+ - obesity (finding)</td>
+          <td id="conditions-code-3">SNOMED-CT 162864005</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>1987-12-21T06:22:41-05:00</td>
+          <td></td>
+          <td id="conditions-desc-4">Prediabetes</td>
+          <td id="conditions-code-4">SNOMED-CT 15777000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>1987-12-21T06:22:41-05:00</td>
+          <td></td>
+          <td id="conditions-desc-5">Anemia (disorder)</td>
+          <td id="conditions-code-5">SNOMED-CT 271737000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td>2012-03-31T07:22:41-04:00</td>
+          <td id="conditions-desc-6">Polyp of colon</td>
+          <td id="conditions-code-6">SNOMED-CT 68496003</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-11-03T07:22:41-04:00</td>
+          <td>2011-11-17T06:22:41-05:00</td>
+          <td id="conditions-desc-7">Viral sinusitis (disorder)</td>
+          <td id="conditions-code-7">SNOMED-CT 444814009</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-01-18T06:22:41-05:00</td>
+          <td>2013-02-08T06:22:41-05:00</td>
+          <td id="conditions-desc-8">Viral sinusitis (disorder)</td>
+          <td id="conditions-code-8">SNOMED-CT 444814009</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-10-13T07:22:41-04:00</td>
+          <td>2013-11-03T06:22:41-05:00</td>
+          <td id="conditions-desc-9">Viral sinusitis (disorder)</td>
+          <td id="conditions-code-9">SNOMED-CT 444814009</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-06-20T07:22:41-04:00</td>
+          <td id="conditions-desc-10">Fracture of clavicle</td>
+          <td id="conditions-code-10">SNOMED-CT 58150001</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_5" title="List of surgeries">Surgeries</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td>2010-12-07T06:50:41-05:00</td>
+          <td id="procedures-desc-1">Colonoscopy</td>
+          <td id="procedures-code-1">SNOMED-CT 73761001</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td>2010-12-07T06:37:41-05:00</td>
+          <td id="procedures-desc-2">Fecal occult blood test</td>
+          <td id="procedures-code-2">SNOMED-CT 1015401000000102</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td>2010-12-07T06:37:41-05:00</td>
+          <td id="procedures-desc-3">Rectal polypectomy</td>
+          <td id="procedures-code-3">SNOMED-CT 274031008</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td>2011-03-07T06:37:41-05:00</td>
+          <td id="procedures-desc-4">Medication Reconciliation (procedure)</td>
+          <td id="procedures-code-4">SNOMED-CT 430193006</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-31T07:22:41-04:00</td>
+          <td>2012-03-31T08:01:41-04:00</td>
+          <td id="procedures-desc-5">Colonoscopy</td>
+          <td id="procedures-code-5">SNOMED-CT 73761001</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td>2013-03-18T07:37:41-04:00</td>
+          <td id="procedures-desc-6">Medication Reconciliation (procedure)</td>
+          <td id="procedures-code-6">SNOMED-CT 430193006</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td>2015-03-30T07:37:41-04:00</td>
+          <td id="procedures-desc-7">Medication Reconciliation (procedure)</td>
+          <td id="procedures-code-7">SNOMED-CT 430193006</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-05-21T07:52:41-04:00</td>
+          <td id="procedures-desc-8">Clavicle X-ray</td>
+          <td id="procedures-code-8">SNOMED-CT 168594001</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-05-21T08:22:41-04:00</td>
+          <td id="procedures-desc-9">Admission to orthopedic department</td>
+          <td id="procedures-code-9">SNOMED-CT 305428000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-05-21T07:37:41-04:00</td>
+          <td id="procedures-desc-10">Bone density scan (procedure)</td>
+          <td id="procedures-code-10">SNOMED-CT 312681000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-03-30T07:22:41-04:00</td>
+          <td>2017-03-30T08:05:41-04:00</td>
+          <td id="procedures-desc-11">Colonoscopy</td>
+          <td id="procedures-code-11">SNOMED-CT 73761001</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td>2017-04-10T07:37:41-04:00</td>
+          <td id="procedures-desc-12">Medication Reconciliation (procedure)</td>
+          <td id="procedures-code-12">SNOMED-CT 430193006</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td>2019-04-22T07:37:41-04:00</td>
+          <td id="procedures-desc-13">Medication Reconciliation (procedure)</td>
+          <td id="procedures-code-13">SNOMED-CT 430193006</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_6" title="History of encounters">Encounters</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>1965-11-15T06:22:41-05:00</td>
+          <td>1965-11-15T08:07:41-05:00</td>
+          <td id="encounters-desc-1">Cardiac Arrest</td>
+          <td id="encounters-code-1">SNOMED-CT 410429000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>1977-02-21T06:22:41-05:00</td>
+          <td>1977-02-21T06:52:41-05:00</td>
+          <td id="encounters-desc-2">General examination of patient (procedure)</td>
+          <td id="encounters-code-2">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>1987-12-21T06:22:41-05:00</td>
+          <td>1987-12-21T06:37:41-05:00</td>
+          <td id="encounters-desc-3">General examination of patient (procedure)</td>
+          <td id="encounters-code-3">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td>2010-03-01T06:37:41-05:00</td>
+          <td id="encounters-desc-4">General examination of patient (procedure)</td>
+          <td id="encounters-code-4">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td>2010-12-07T07:35:41-05:00</td>
+          <td id="encounters-desc-5">Encounter for 'check-up'</td>
+          <td id="encounters-code-5">SNOMED-CT 185349003</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td>2011-03-07T06:52:41-05:00</td>
+          <td id="encounters-desc-6">General examination of patient (procedure)</td>
+          <td id="encounters-code-6">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-11-03T07:22:41-04:00</td>
+          <td>2011-11-03T07:37:41-04:00</td>
+          <td id="encounters-desc-7">Encounter for symptom</td>
+          <td id="encounters-code-7">SNOMED-CT 185345009</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td>2012-03-12T07:37:41-04:00</td>
+          <td id="encounters-desc-8">General examination of patient (procedure)</td>
+          <td id="encounters-code-8">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-31T07:22:41-04:00</td>
+          <td>2012-03-31T08:16:41-04:00</td>
+          <td id="encounters-desc-9">Encounter for 'check-up'</td>
+          <td id="encounters-code-9">SNOMED-CT 185349003</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-01-18T06:22:41-05:00</td>
+          <td>2013-01-18T06:37:41-05:00</td>
+          <td id="encounters-desc-10">Encounter for symptom</td>
+          <td id="encounters-code-10">SNOMED-CT 185345009</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td>2013-03-18T07:52:41-04:00</td>
+          <td id="encounters-desc-11">General examination of patient (procedure)</td>
+          <td id="encounters-code-11">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-10-13T07:22:41-04:00</td>
+          <td>2013-10-13T07:37:41-04:00</td>
+          <td id="encounters-desc-12">Encounter for symptom</td>
+          <td id="encounters-code-12">SNOMED-CT 185345009</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td>2014-03-24T07:37:41-04:00</td>
+          <td id="encounters-desc-13">General examination of patient (procedure)</td>
+          <td id="encounters-code-13">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td>2015-03-30T07:52:41-04:00</td>
+          <td id="encounters-desc-14">General examination of patient (procedure)</td>
+          <td id="encounters-code-14">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td>2016-04-04T07:37:41-04:00</td>
+          <td id="encounters-desc-15">General examination of patient (procedure)</td>
+          <td id="encounters-code-15">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-05-21T10:07:41-04:00</td>
+          <td id="encounters-desc-16">Emergency room admission (procedure)</td>
+          <td id="encounters-code-16">SNOMED-CT 50849002</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-06-20T07:22:41-04:00</td>
+          <td>2016-06-20T07:37:41-04:00</td>
+          <td id="encounters-desc-17">Encounter for 'check-up'</td>
+          <td id="encounters-code-17">SNOMED-CT 185349003</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-03-30T07:22:41-04:00</td>
+          <td>2017-03-30T08:20:41-04:00</td>
+          <td id="encounters-desc-18">Encounter for 'check-up'</td>
+          <td id="encounters-code-18">SNOMED-CT 185349003</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td>2017-04-10T07:52:41-04:00</td>
+          <td id="encounters-desc-19">General examination of patient (procedure)</td>
+          <td id="encounters-code-19">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td>2018-04-16T07:37:41-04:00</td>
+          <td id="encounters-desc-20">General examination of patient (procedure)</td>
+          <td id="encounters-code-20">SNOMED-CT 162673000</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td>2019-04-22T07:52:41-04:00</td>
+          <td id="encounters-desc-21">General examination of patient (procedure)</td>
+          <td id="encounters-code-21">SNOMED-CT 162673000</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_7" title="Vital signs">Vital Signs</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+        <th class="narr_th">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-1">Body Height</td>
+          <td id="observations-code-1">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-2">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-2">LOINC 72514-3</td>
+          <td>1.1844131388662626 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-3">Body Weight</td>
+          <td id="observations-code-3">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-4">Body Mass Index</td>
+          <td id="observations-code-4">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-5">Blood Pressure</td>
+          <td id="observations-code-5">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 84.51637275024623 mm[Hg]
+          Systolic Blood Pressure 119.11425717022348 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-6">Glucose</td>
+          <td id="observations-code-6">LOINC 2339-0</td>
+          <td>87.84435224199666 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-7">Urea Nitrogen</td>
+          <td id="observations-code-7">LOINC 6299-2</td>
+          <td>18.23111623319953 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-8">Creatinine</td>
+          <td id="observations-code-8">LOINC 38483-4</td>
+          <td>1.1385306360137668 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-9">Calcium</td>
+          <td id="observations-code-9">LOINC 49765-1</td>
+          <td>9.57094827230436 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-10">Sodium</td>
+          <td id="observations-code-10">LOINC 2947-0</td>
+          <td>136.23512237139718 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-11">Potassium</td>
+          <td id="observations-code-11">LOINC 6298-4</td>
+          <td>5.073462161771461 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-12">Chloride</td>
+          <td id="observations-code-12">LOINC 2069-3</td>
+          <td>104.89587387117228 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-13">Carbon Dioxide</td>
+          <td id="observations-code-13">LOINC 20565-8</td>
+          <td>22.452512077109148 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-14">Tobacco smoking status NHIS</td>
+          <td id="observations-code-14">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-15">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-15">LOINC 4548-4</td>
+          <td>5.809554168534451 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-16">Polyp size greatest dimension by CAP cancer protocols</td>
+          <td id="observations-code-16">LOINC 33756-8</td>
+          <td>4.1691533063330315 mm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2010-12-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-17">Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method</td>
+          <td id="observations-code-17">LOINC 57905-2</td>
+          <td>8.957503709413642 ng/mL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-18">Body Height</td>
+          <td id="observations-code-18">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-19">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-19">LOINC 72514-3</td>
+          <td>3.0111464244461583 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-20">Body Weight</td>
+          <td id="observations-code-20">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-21">Body Mass Index</td>
+          <td id="observations-code-21">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-22">Blood Pressure</td>
+          <td id="observations-code-22">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 76.33842127833996 mm[Hg]
+          Systolic Blood Pressure 108.06490941028646 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-23">Glucose</td>
+          <td id="observations-code-23">LOINC 2339-0</td>
+          <td>98.19906632699212 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-24">Urea Nitrogen</td>
+          <td id="observations-code-24">LOINC 6299-2</td>
+          <td>15.588786793582125 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-25">Creatinine</td>
+          <td id="observations-code-25">LOINC 38483-4</td>
+          <td>1.1082647246969741 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-26">Calcium</td>
+          <td id="observations-code-26">LOINC 49765-1</td>
+          <td>10.004058446030324 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-27">Sodium</td>
+          <td id="observations-code-27">LOINC 2947-0</td>
+          <td>137.60726604330588 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-28">Potassium</td>
+          <td id="observations-code-28">LOINC 6298-4</td>
+          <td>3.904583088469118 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-29">Chloride</td>
+          <td id="observations-code-29">LOINC 2069-3</td>
+          <td>103.90467866656729 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-30">Carbon Dioxide</td>
+          <td id="observations-code-30">LOINC 20565-8</td>
+          <td>28.27861239492657 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-31">Total Cholesterol</td>
+          <td id="observations-code-31">LOINC 2093-3</td>
+          <td>162.6999400689836 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-32">Triglycerides</td>
+          <td id="observations-code-32">LOINC 2571-8</td>
+          <td>108.10796968866686 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-33">Low Density Lipoprotein Cholesterol</td>
+          <td id="observations-code-33">LOINC 18262-6</td>
+          <td>63.40661819758798 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-34">High Density Lipoprotein Cholesterol</td>
+          <td id="observations-code-34">LOINC 2085-9</td>
+          <td>77.67172793366225 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-35">Tobacco smoking status NHIS</td>
+          <td id="observations-code-35">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="observations-desc-36">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-36">LOINC 4548-4</td>
+          <td>5.968389791579613 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-37">Body Height</td>
+          <td id="observations-code-37">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-38">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-38">LOINC 72514-3</td>
+          <td>1.1576837118176848 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-39">Body Weight</td>
+          <td id="observations-code-39">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-40">Body Mass Index</td>
+          <td id="observations-code-40">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-41">Blood Pressure</td>
+          <td id="observations-code-41">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 70.12878143635353 mm[Hg]
+          Systolic Blood Pressure 107.08745337304765 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-42">Glucose</td>
+          <td id="observations-code-42">LOINC 2339-0</td>
+          <td>88.95546220196469 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-43">Urea Nitrogen</td>
+          <td id="observations-code-43">LOINC 6299-2</td>
+          <td>19.921049926060917 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-44">Creatinine</td>
+          <td id="observations-code-44">LOINC 38483-4</td>
+          <td>0.8650572212168195 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-45">Calcium</td>
+          <td id="observations-code-45">LOINC 49765-1</td>
+          <td>8.981813221057655 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-46">Sodium</td>
+          <td id="observations-code-46">LOINC 2947-0</td>
+          <td>136.51144810159312 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-47">Potassium</td>
+          <td id="observations-code-47">LOINC 6298-4</td>
+          <td>4.41443009381778 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-48">Chloride</td>
+          <td id="observations-code-48">LOINC 2069-3</td>
+          <td>107.55649108001407 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-49">Carbon Dioxide</td>
+          <td id="observations-code-49">LOINC 20565-8</td>
+          <td>21.756713507417643 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-50">Tobacco smoking status NHIS</td>
+          <td id="observations-code-50">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-51">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-51">LOINC 4548-4</td>
+          <td>6.028980813801544 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-52">Body Height</td>
+          <td id="observations-code-52">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-53">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-53">LOINC 72514-3</td>
+          <td>1.1673048866766504 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-54">Body Weight</td>
+          <td id="observations-code-54">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-55">Body Mass Index</td>
+          <td id="observations-code-55">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-56">Blood Pressure</td>
+          <td id="observations-code-56">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 84.70834042713263 mm[Hg]
+          Systolic Blood Pressure 107.88489088123139 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-57">Glucose</td>
+          <td id="observations-code-57">LOINC 2339-0</td>
+          <td>70.47320077952823 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-58">Urea Nitrogen</td>
+          <td id="observations-code-58">LOINC 6299-2</td>
+          <td>16.115099678582055 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-59">Creatinine</td>
+          <td id="observations-code-59">LOINC 38483-4</td>
+          <td>0.8533672587679435 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-60">Calcium</td>
+          <td id="observations-code-60">LOINC 49765-1</td>
+          <td>9.336856070457708 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-61">Sodium</td>
+          <td id="observations-code-61">LOINC 2947-0</td>
+          <td>141.08923895285966 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-62">Potassium</td>
+          <td id="observations-code-62">LOINC 6298-4</td>
+          <td>4.815897339492492 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-63">Chloride</td>
+          <td id="observations-code-63">LOINC 2069-3</td>
+          <td>101.51660505223896 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-64">Carbon Dioxide</td>
+          <td id="observations-code-64">LOINC 20565-8</td>
+          <td>21.53166114488468 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-65">Leukocytes [#/volume] in Blood by Automated count</td>
+          <td id="observations-code-65">LOINC 6690-2</td>
+          <td>6.311290035357945 10*3/uL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-66">Erythrocytes [#/volume] in Blood by Automated count</td>
+          <td id="observations-code-66">LOINC 789-8</td>
+          <td>3.9040846330274 10*6/uL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-67">Hemoglobin [Mass/volume] in Blood</td>
+          <td id="observations-code-67">LOINC 718-7</td>
+          <td>16.4349617270808 g/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-68">Hematocrit [Volume Fraction] of Blood by Automated count</td>
+          <td id="observations-code-68">LOINC 4544-3</td>
+          <td>42.88186776392892 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-69">MCV [Entitic volume] by Automated count</td>
+          <td id="observations-code-69">LOINC 787-2</td>
+          <td>80.9735504176718 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-70">MCH [Entitic mass] by Automated count</td>
+          <td id="observations-code-70">LOINC 785-6</td>
+          <td>28.293053234125114 pg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-71">MCHC [Mass/volume] by Automated count</td>
+          <td id="observations-code-71">LOINC 786-4</td>
+          <td>33.39658459475702 g/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-72">Erythrocyte distribution width [Entitic volume] by Automated count</td>
+          <td id="observations-code-72">LOINC 21000-5</td>
+          <td>42.89312347214459 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-73">Platelets [#/volume] in Blood by Automated count</td>
+          <td id="observations-code-73">LOINC 777-3</td>
+          <td>175.00108572192858 10*3/uL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-74">Platelet distribution width [Entitic volume] in Blood by Automated count</td>
+          <td id="observations-code-74">LOINC 32207-3</td>
+          <td>495.9946340343422 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-75">Platelet mean volume [Entitic volume] in Blood by Automated count</td>
+          <td id="observations-code-75">LOINC 32623-1</td>
+          <td>11.25610258961749 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-76">Tobacco smoking status NHIS</td>
+          <td id="observations-code-76">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-77">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-77">LOINC 4548-4</td>
+          <td>6.2995107228451985 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-78">Body Height</td>
+          <td id="observations-code-78">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-79">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-79">LOINC 72514-3</td>
+          <td>0.8381922055805364 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-80">Body Weight</td>
+          <td id="observations-code-80">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-81">Body Mass Index</td>
+          <td id="observations-code-81">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-82">Blood Pressure</td>
+          <td id="observations-code-82">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 82.51956701589573 mm[Hg]
+          Systolic Blood Pressure 126.10557018663744 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-83">Glucose</td>
+          <td id="observations-code-83">LOINC 2339-0</td>
+          <td>86.58703687266242 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-84">Urea Nitrogen</td>
+          <td id="observations-code-84">LOINC 6299-2</td>
+          <td>13.863474207588503 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-85">Creatinine</td>
+          <td id="observations-code-85">LOINC 38483-4</td>
+          <td>0.8416772963190675 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-86">Calcium</td>
+          <td id="observations-code-86">LOINC 49765-1</td>
+          <td>9.867104633103384 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-87">Sodium</td>
+          <td id="observations-code-87">LOINC 2947-0</td>
+          <td>136.03153515258228 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-88">Potassium</td>
+          <td id="observations-code-88">LOINC 6298-4</td>
+          <td>4.082968404059315 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-89">Chloride</td>
+          <td id="observations-code-89">LOINC 2069-3</td>
+          <td>105.3934597010875 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-90">Carbon Dioxide</td>
+          <td id="observations-code-90">LOINC 20565-8</td>
+          <td>25.630833215809634 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-91">Total Cholesterol</td>
+          <td id="observations-code-91">LOINC 2093-3</td>
+          <td>177.52787778605872 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-92">Triglycerides</td>
+          <td id="observations-code-92">LOINC 2571-8</td>
+          <td>138.55331514677476 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-93">Low Density Lipoprotein Cholesterol</td>
+          <td id="observations-code-93">LOINC 18262-6</td>
+          <td>77.03677697328351 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-94">High Density Lipoprotein Cholesterol</td>
+          <td id="observations-code-94">LOINC 2085-9</td>
+          <td>72.78043778342025 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-95">Tobacco smoking status NHIS</td>
+          <td id="observations-code-95">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-96">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-96">LOINC 4548-4</td>
+          <td>6.0700661802897855 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-97">Body Height</td>
+          <td id="observations-code-97">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-98">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-98">LOINC 72514-3</td>
+          <td>2.744325399190203 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-99">Body Weight</td>
+          <td id="observations-code-99">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-100">Body Mass Index</td>
+          <td id="observations-code-100">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-101">Blood Pressure</td>
+          <td id="observations-code-101">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 73.98791789358756 mm[Hg]
+          Systolic Blood Pressure 116.54641536827786 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-102">Glucose</td>
+          <td id="observations-code-102">LOINC 2339-0</td>
+          <td>74.84786893297075 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-103">Urea Nitrogen</td>
+          <td id="observations-code-103">LOINC 6299-2</td>
+          <td>15.224085959967049 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-104">Creatinine</td>
+          <td id="observations-code-104">LOINC 38483-4</td>
+          <td>0.8604703618275533 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-105">Calcium</td>
+          <td id="observations-code-105">LOINC 49765-1</td>
+          <td>9.737789084577416 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-106">Sodium</td>
+          <td id="observations-code-106">LOINC 2947-0</td>
+          <td>140.84394652748847 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-107">Potassium</td>
+          <td id="observations-code-107">LOINC 6298-4</td>
+          <td>4.312858966408592 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-108">Chloride</td>
+          <td id="observations-code-108">LOINC 2069-3</td>
+          <td>109.03497245711941 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-109">Carbon Dioxide</td>
+          <td id="observations-code-109">LOINC 20565-8</td>
+          <td>22.33977483276944 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-110">Tobacco smoking status NHIS</td>
+          <td id="observations-code-110">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-111">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-111">LOINC 4548-4</td>
+          <td>5.869424835543648 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-112">Body Height</td>
+          <td id="observations-code-112">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-113">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-113">LOINC 72514-3</td>
+          <td>3.0281347112366457 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-114">Body Weight</td>
+          <td id="observations-code-114">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-115">Body Mass Index</td>
+          <td id="observations-code-115">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-116">Blood Pressure</td>
+          <td id="observations-code-116">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 72.77707154662787 mm[Hg]
+          Systolic Blood Pressure 131.83746948635456 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-117">Glucose</td>
+          <td id="observations-code-117">LOINC 2339-0</td>
+          <td>88.22066667734315 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-118">Urea Nitrogen</td>
+          <td id="observations-code-118">LOINC 6299-2</td>
+          <td>18.757232371106102 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-119">Creatinine</td>
+          <td id="observations-code-119">LOINC 38483-4</td>
+          <td>0.8182973714213156 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-120">Calcium</td>
+          <td id="observations-code-120">LOINC 49765-1</td>
+          <td>8.979599144371937 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-121">Sodium</td>
+          <td id="observations-code-121">LOINC 2947-0</td>
+          <td>136.02218202648658 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-122">Potassium</td>
+          <td id="observations-code-122">LOINC 6298-4</td>
+          <td>4.093634475499852 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-123">Chloride</td>
+          <td id="observations-code-123">LOINC 2069-3</td>
+          <td>110.6806045390422 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-124">Carbon Dioxide</td>
+          <td id="observations-code-124">LOINC 20565-8</td>
+          <td>26.935803954158047 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-125">Tobacco smoking status NHIS</td>
+          <td id="observations-code-125">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-126">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-126">LOINC 4548-4</td>
+          <td>6.125496448919951 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-127">DXA [T-score] Bone density</td>
+          <td id="observations-code-127">LOINC 38265-5</td>
+          <td>0.2225036341840795 {T-score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-128">Body Height</td>
+          <td id="observations-code-128">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-129">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-129">LOINC 72514-3</td>
+          <td>1.3360302712414898 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-130">Body Weight</td>
+          <td id="observations-code-130">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-131">Body Mass Index</td>
+          <td id="observations-code-131">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-132">Blood Pressure</td>
+          <td id="observations-code-132">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 79.28433596122858 mm[Hg]
+          Systolic Blood Pressure 131.2070759032785 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-133">Glucose</td>
+          <td id="observations-code-133">LOINC 2339-0</td>
+          <td>82.78104951885008 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-134">Urea Nitrogen</td>
+          <td id="observations-code-134">LOINC 6299-2</td>
+          <td>8.004584859508437 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-135">Creatinine</td>
+          <td id="observations-code-135">LOINC 38483-4</td>
+          <td>0.913491340848433 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-136">Calcium</td>
+          <td id="observations-code-136">LOINC 49765-1</td>
+          <td>9.254014082041206 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-137">Sodium</td>
+          <td id="observations-code-137">LOINC 2947-0</td>
+          <td>138.88379363323304 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-138">Potassium</td>
+          <td id="observations-code-138">LOINC 6298-4</td>
+          <td>4.694634191074009 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-139">Chloride</td>
+          <td id="observations-code-139">LOINC 2069-3</td>
+          <td>107.27176686578282 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-140">Carbon Dioxide</td>
+          <td id="observations-code-140">LOINC 20565-8</td>
+          <td>28.143007775397813 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-141">Total Cholesterol</td>
+          <td id="observations-code-141">LOINC 2093-3</td>
+          <td>179.42256457662924 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-142">Triglycerides</td>
+          <td id="observations-code-142">LOINC 2571-8</td>
+          <td>146.68814219806134 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-143">Low Density Lipoprotein Cholesterol</td>
+          <td id="observations-code-143">LOINC 18262-6</td>
+          <td>90.16908231261561 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-144">High Density Lipoprotein Cholesterol</td>
+          <td id="observations-code-144">LOINC 2085-9</td>
+          <td>59.91585382440136 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-145">Tobacco smoking status NHIS</td>
+          <td id="observations-code-145">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-146">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-146">LOINC 4548-4</td>
+          <td>5.8148777589412886 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-147">Body Height</td>
+          <td id="observations-code-147">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-148">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-148">LOINC 72514-3</td>
+          <td>0.5905871148257882 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-149">Body Weight</td>
+          <td id="observations-code-149">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-150">Body Mass Index</td>
+          <td id="observations-code-150">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-151">Blood Pressure</td>
+          <td id="observations-code-151">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 78.03731079421466 mm[Hg]
+          Systolic Blood Pressure 110.73027343556171 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-152">Glucose</td>
+          <td id="observations-code-152">LOINC 2339-0</td>
+          <td>80.59675462834497 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-153">Urea Nitrogen</td>
+          <td id="observations-code-153">LOINC 6299-2</td>
+          <td>18.947578477363294 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-154">Creatinine</td>
+          <td id="observations-code-154">LOINC 38483-4</td>
+          <td>0.7949174465235638 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-155">Calcium</td>
+          <td id="observations-code-155">LOINC 49765-1</td>
+          <td>9.903645460756604 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-156">Sodium</td>
+          <td id="observations-code-156">LOINC 2947-0</td>
+          <td>138.23072065948614 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-157">Potassium</td>
+          <td id="observations-code-157">LOINC 6298-4</td>
+          <td>4.076210687346188 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-158">Chloride</td>
+          <td id="observations-code-158">LOINC 2069-3</td>
+          <td>102.14856147992664 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-159">Carbon Dioxide</td>
+          <td id="observations-code-159">LOINC 20565-8</td>
+          <td>23.417478900973553 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-160">Leukocytes [#/volume] in Blood by Automated count</td>
+          <td id="observations-code-160">LOINC 6690-2</td>
+          <td>4.450791053187432 10*3/uL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-161">Erythrocytes [#/volume] in Blood by Automated count</td>
+          <td id="observations-code-161">LOINC 789-8</td>
+          <td>4.524162068187181 10*6/uL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-162">Hemoglobin [Mass/volume] in Blood</td>
+          <td id="observations-code-162">LOINC 718-7</td>
+          <td>16.761810192406987 g/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-163">Hematocrit [Volume Fraction] of Blood by Automated count</td>
+          <td id="observations-code-163">LOINC 4544-3</td>
+          <td>41.63770624130676 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-164">MCV [Entitic volume] by Automated count</td>
+          <td id="observations-code-164">LOINC 787-2</td>
+          <td>88.54272639835602 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-165">MCH [Entitic mass] by Automated count</td>
+          <td id="observations-code-165">LOINC 785-6</td>
+          <td>29.547796524888543 pg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-166">MCHC [Mass/volume] by Automated count</td>
+          <td id="observations-code-166">LOINC 786-4</td>
+          <td>33.861251282387364 g/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-167">Erythrocyte distribution width [Entitic volume] by Automated count</td>
+          <td id="observations-code-167">LOINC 21000-5</td>
+          <td>41.828942312415116 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-168">Platelets [#/volume] in Blood by Automated count</td>
+          <td id="observations-code-168">LOINC 777-3</td>
+          <td>312.0895527050412 10*3/uL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-169">Platelet distribution width [Entitic volume] in Blood by Automated count</td>
+          <td id="observations-code-169">LOINC 32207-3</td>
+          <td>407.3594608158297 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-170">Platelet mean volume [Entitic volume] in Blood by Automated count</td>
+          <td id="observations-code-170">LOINC 32623-1</td>
+          <td>11.301975720721916 fL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-171">Tobacco smoking status NHIS</td>
+          <td id="observations-code-171">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-172">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-172">LOINC 4548-4</td>
+          <td>6.302752919773359 %</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-173">Body Height</td>
+          <td id="observations-code-173">LOINC 8302-2</td>
+          <td>173.9018914060253 cm</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-174">Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+          <td id="observations-code-174">LOINC 72514-3</td>
+          <td>0.5986102254328189 {score}</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-175">Body Weight</td>
+          <td id="observations-code-175">LOINC 29463-7</td>
+          <td>84.16772963190675 kg</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-176">Body Mass Index</td>
+          <td id="observations-code-176">LOINC 39156-5</td>
+          <td>27.831524855627176 kg/m2</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-177">Blood Pressure</td>
+          <td id="observations-code-177">LOINC 55284-4</td>
+          <td>
+          Diastolic Blood Pressure 87.58584140488502 mm[Hg]
+          Systolic Blood Pressure 132.47190550909062 mm[Hg]
+          </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-178">Glucose</td>
+          <td id="observations-code-178">LOINC 2339-0</td>
+          <td>90.12908986298388 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-179">Urea Nitrogen</td>
+          <td id="observations-code-179">LOINC 6299-2</td>
+          <td>14.1589458229723 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-180">Creatinine</td>
+          <td id="observations-code-180">LOINC 38483-4</td>
+          <td>0.880610739174401 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-181">Calcium</td>
+          <td id="observations-code-181">LOINC 49765-1</td>
+          <td>9.116657509505865 mg/dL</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-182">Sodium</td>
+          <td id="observations-code-182">LOINC 2947-0</td>
+          <td>137.0313870557008 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-183">Potassium</td>
+          <td id="observations-code-183">LOINC 6298-4</td>
+          <td>4.259276217462162 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-184">Chloride</td>
+          <td id="observations-code-184">LOINC 2069-3</td>
+          <td>109.11258101234269 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-185">Carbon Dioxide</td>
+          <td id="observations-code-185">LOINC 20565-8</td>
+          <td>25.075748049514957 mmol/L</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-186">Tobacco smoking status NHIS</td>
+          <td id="observations-code-186">LOINC 72166-2</td>
+          <td>SNOMED-CT 266919005 Never smoker </td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="observations-desc-187">Hemoglobin A1c/Hemoglobin.total in Blood</td>
+          <td id="observations-code-187">LOINC 4548-4</td>
+          <td>6.221308687047595 %</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_8" title="History of immunizations">Immunizations</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>2010-03-01T06:22:41-05:00</td>
+          <td></td>
+          <td id="immunizations-desc-1">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-1">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="immunizations-desc-2">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-2">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2011-03-07T06:22:41-05:00</td>
+          <td></td>
+          <td id="immunizations-desc-3">Pneumococcal conjugate PCV 13</td>
+          <td id="immunizations-code-3">http://hl7.org/fhir/sid/cvx 133</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-4">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-4">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2012-03-12T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-5">pneumococcal polysaccharide vaccine, 23 valent</td>
+          <td id="immunizations-code-5">http://hl7.org/fhir/sid/cvx 33</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2013-03-18T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-6">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-6">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2014-03-24T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-7">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-7">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2015-03-30T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-8">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-8">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-04-04T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-9">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-9">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-10">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-10">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2017-04-10T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-11">Td (adult) preservative free</td>
+          <td id="immunizations-code-11">http://hl7.org/fhir/sid/cvx 113</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2018-04-16T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-12">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-12">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2019-04-22T07:22:41-04:00</td>
+          <td></td>
+          <td id="immunizations-desc-13">Influenza, seasonal, injectable, preservative free</td>
+          <td id="immunizations-code-13">http://hl7.org/fhir/sid/cvx 140</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_9" title="Treatment plan">Plan of Care</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>
+  <table class="narr_table" cellspacing="1" cellpadding="1" width="100%" border="1">
+    <thead>
+      <tr class="narr_tr">
+        <th class="narr_th">Start</th>
+        <th class="narr_th">Stop</th>
+        <th class="narr_th">Description</th>
+        <th class="narr_th">Code</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="narr_tr">
+          <td>1987-12-21T06:22:41-05:00</td>
+          <td></td>
+          <td id="careplans-desc-1">Diabetes self management plan</td>
+          <td id="careplans-code-1">SNOMED-CT 698360004</td>
+        </tr>
+        <tr class="narr_tr">
+          <td>2016-05-21T07:22:41-04:00</td>
+          <td>2016-06-20T07:22:41-04:00</td>
+          <td id="careplans-desc-2">Fracture care</td>
+          <td id="careplans-code-2">SNOMED-CT 385691007</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_10" title="DICOM Object Catalog Section">Imaging Studies</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body"> </div>
+        </div>
+      </div>
+      <div style="margin-left: 0em;" class="section">
+        <div class="section-title">
+          <div class="button expandCollapse" onclick="collapseSection(this)" title="Collapse">▼</div>
+          <h3 id="section_11" title="29762-2">Social History</h3>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <div>There is no current social history at the time of this document's creation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="documentfooter">
+      <table class="header_table">
+        <tbody>
+          <tr>
+            <td class="td_label td_label_width">Document</td>
+            <td style="width: 30%;">
+              <table class="table_simple">
+                <tbody>
+                  <tr>
+                    <td class="td_label">ID</td>
+                    <td>
+                      <span title="https://github.com/synthetichealth/synthea">2fa15bc7-8866-461a-9000-f739e425860a (2.16.840.1.113883.19.5)</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="td_label td_label_width">Created On</td>
+            <td>September  23, 2019, 07:22:41AM</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="header_table">
+        <tbody>
+          <tr>
+            <td class="td_label td_label_width">Custodian</td>
+            <td style="width: 30%;">PCP116891</td>
+            <td class="td_label td_label_width">Contact Details</td>
+            <td>1244 BROADWAY<br />RAYNHAM, MA 02767-1973<br /><br /></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="separator"> </div>
+      <table class="header_table">
+        <tbody>
+          <tr>
+            <td class="td_label td_label_width">Patient</td>
+            <td style="width: 30%;">Aaron697  BREKKE496</td>
+            <td class="td_label td_label_width">Contact Details</td>
+            <td style="width: 30%;">Home Primary: 894 Brakus Bypass<br />Taunton, Massachusetts 02718<br /><br /></td>
+          </tr>
+          <tr>
+            <td class="td_label td_label_width">Date of Birth</td>
+            <td style="width: 30%;">December  10, 1945, 06:22:41AM (73yr)</td>
+            <td class="td_label td_label_width">Gender</td>
+            <td>M</td>
+          </tr>
+          <tr>
+            <td class="td_label td_label_width">Race</td>
+            <td style="width: 30%;">white</td>
+            <td class="td_label td_label_width">Ethnicity</td>
+            <td>non-hispanic</td>
+          </tr>
+          <tr>
+            <td class="td_label td_label_width">Patient-IDs</td>
+            <td>
+              <span title="https://github.com/synthetichealth/synthea">2fa15bc7-8866-461a-9000-f739e425860a (2.16.840.1.113883.19.5)</span>
+            </td>
+            <td class="td_label td_label_width">Language Communication</td>
+            <td colspan="3">
+              <div>en-US</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="separator"> </div>
+      <table class="header_table">
+        <tbody>
+          <tr>
+            <td class="td_label td_label_width">Documentation Of - care provision</td>
+            <td style="width: 80%;" colspan="3">from December  10, 1945, 06:22:41AM to September  23, 2019, 07:22:41AM</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="separator"> </div>
+      <table class="header_table">
+        <tbody>
+          <tr>
+            <td class="td_label td_label_width" rowspan="2">Author</td>
+            <td style="width: 30%;" rowspan="2">https://github.com/synthetichealth/synthea, Organization: PCP116891</td>
+            <td class="td_label td_label_width">Contact Details</td>
+            <td>not applicable<br /></td>
+          </tr>
+          <tr>
+            <td class="td_label td_label_width">Contact Details (Organization)</td>
+            <td>1244 BROADWAY<br />RAYNHAM, MA 02767-1973<br /><br /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+

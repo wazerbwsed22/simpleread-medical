@@ -1,4 +1,5 @@
-import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
+import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
+import pdfParse from 'pdf-parse';
 
 export interface ParsedChunk {
   text: string;
@@ -17,7 +18,6 @@ export async function parseAndChunkFile(
   let fullText = '';
 
   if (ext === 'pdf') {
-    const pdfParse = (await import('pdf-parse')).default;
     const parsed = await pdfParse(buffer);
     fullText = parsed.text;
   } else if (ext === 'docx' || ext === 'doc') {

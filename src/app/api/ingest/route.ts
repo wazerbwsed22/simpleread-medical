@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ingestFile } from '@/lib/rag';
 
-export const config = { api: { bodyParser: false } };
-
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
