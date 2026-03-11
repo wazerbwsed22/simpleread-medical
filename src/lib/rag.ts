@@ -14,14 +14,33 @@ const CLAUDE_MODEL_ID = 'us.anthropic.claude-3-5-sonnet-20241022-v2:0';
 
 // ─── Document Summary ─────────────────────────────────────────────────────────
 
+export interface PatientInfo {
+  name: string;
+  dateOfBirth: string;
+  age: string;
+  sex: string;
+  id: string;
+}
+
+export interface Recommendation {
+  title: string;
+  explanation: string;
+}
+
+export interface FollowUpQuestions {
+  pcp: string[];
+  specialists: { specialty: string; questions: string[] }[];
+}
+
 export interface DocumentSummary {
   documentType: string;
   date: string;
-  patientInfo: string;
+  patientInfo: PatientInfo;
   keyFindings: string[];
   diagnoses: string[];
-  recommendations: string[];
+  recommendations: Recommendation[];
   overallAssessment: string;
+  followUpQuestions: FollowUpQuestions;
 }
 
 async function summarizeDocument(text: string): Promise<DocumentSummary> {
@@ -37,12 +56,35 @@ async function summarizeDocument(text: string): Promise<DocumentSummary> {
 {
   "documentType": "string (e.g. Lab Report, Radiology Report, Discharge Summary)",
   "date": "string (report date or 'Not specified')",
-  "patientInfo": "string (name/age/ID if present, or 'Not specified')",
+  "patientInfo": {
+    "name": "string (patient full name or 'Not specified')",
+    "dateOfBirth": "string (e.g. 'December 10, 1945' or 'Not specified')",
+    "age": "string (e.g. '73' or 'Not specified')",
+    "sex": "string (e.g. 'Male', 'Female', or 'Not specified')",
+    "id": "string (patient/medical record ID or 'Not specified')"
+  },
   "keyFindings": ["finding 1", "finding 2"],
   "diagnoses": ["diagnosis 1"],
-  "recommendations": ["recommendation 1"],
-  "overallAssessment": "string (1-2 sentence overall assessment)"
-}`,
+  "recommendations": [
+    {
+      "title": "short recommendation name",
+      "explanation": "1-2 sentences explaining WHY this recommendation matters for this patient given their specific conditions and history"
+    }
+  ],
+  "overallAssessment": "string (1-2 sentence overall assessment)",
+  "followUpQuestions": {
+    "pcp": ["question the patient should ask their primary care provider"],
+    "specialists": [
+      {
+        "specialty": "e.g. Cardiologist, Endocrinologist",
+        "questions": ["question for this specialist"]
+      }
+    ]
+  }
+}
+
+For recommendations, always explain the clinical reasoning — why this specific action is important given the patient's conditions.
+For followUpQuestions, generate 2-4 practical questions for the PCP. Only include specialist entries when the document indicates specialist involvement or conditions that warrant specialist care. Generate 1-3 questions per specialist.`,
         },
       ],
       messages: [
@@ -51,7 +93,7 @@ async function summarizeDocument(text: string): Promise<DocumentSummary> {
           content: [{ text: `Summarize this medical document:\n\n${truncated}` }],
         },
       ],
-      inferenceConfig: { maxTokens: 1024 },
+      inferenceConfig: { maxTokens: 2048 },
     })
   );
 
@@ -64,11 +106,12 @@ async function summarizeDocument(text: string): Promise<DocumentSummary> {
     return {
       documentType: 'Medical Document',
       date: 'Not specified',
-      patientInfo: 'Not specified',
+      patientInfo: { name: 'Not specified', dateOfBirth: 'Not specified', age: 'Not specified', sex: 'Not specified', id: 'Not specified' },
       keyFindings: [raw.slice(0, 300)],
       diagnoses: [],
       recommendations: [],
       overallAssessment: '',
+      followUpQuestions: { pcp: [], specialists: [] },
     };
   }
 }
@@ -84,11 +127,12 @@ export interface IngestResult {
 const FALLBACK_SUMMARY: DocumentSummary = {
   documentType: 'Medical Document',
   date: 'Not specified',
-  patientInfo: 'Not specified',
+  patientInfo: { name: 'Not specified', dateOfBirth: 'Not specified', age: 'Not specified', sex: 'Not specified', id: 'Not specified' },
   keyFindings: [],
   diagnoses: [],
   recommendations: [],
   overallAssessment: 'No content could be extracted from this document.',
+  followUpQuestions: { pcp: [], specialists: [] },
 };
 
 /**

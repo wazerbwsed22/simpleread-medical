@@ -2,7 +2,36 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { Upload, File, FileText, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, ArrowRight, Loader2, X, MessageSquare } from 'lucide-react';
+import { Upload, File, FileText, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, ArrowRight, Loader2, X, MessageSquare, HelpCircle, RotateCcw, User, Stethoscope } from 'lucide-react';
+
+interface PatientInfo {
+  name: string;
+  dateOfBirth: string;
+  age: string;
+  sex: string;
+  id: string;
+}
+
+interface Recommendation {
+  title: string;
+  explanation: string;
+}
+
+interface FollowUpQuestions {
+  pcp: string[];
+  specialists: { specialty: string; questions: string[] }[];
+}
+
+interface DocumentSummary {
+  documentType: string;
+  date: string;
+  patientInfo: PatientInfo;
+  keyFindings: string[];
+  diagnoses: string[];
+  recommendations: Recommendation[];
+  overallAssessment: string;
+  followUpQuestions: FollowUpQuestions;
+}
 
 type IngestEvent =
   | { type: 'progress'; message: string }
@@ -10,29 +39,35 @@ type IngestEvent =
   | { type: 'error'; filename: string; message: string }
   | { type: 'done' };
 
-interface DocumentSummary {
-  documentType: string;
-  date: string;
-  patientInfo: string;
-  keyFindings: string[];
-  diagnoses: string[];
-  recommendations: string[];
-  overallAssessment: string;
-}
-
 interface UploadResult {
   filename: string;
   chunks: number;
   summary: DocumentSummary;
 }
 
+function hasPatientInfo(info: PatientInfo): boolean {
+  return Object.values(info).some((v) => v && v !== 'Not specified');
+}
+
+function PatientInfoField({ label, value }: { label: string; value: string }) {
+  if (!value || value === 'Not specified') return null;
+  return (
+    <div>
+      <p className="text-[11px] font-medium uppercase tracking-wider text-slate-400 mb-0.5">{label}</p>
+      <p className="text-slate-800 font-medium text-sm">{value}</p>
+    </div>
+  );
+}
+
 function SummaryCard({ result }: { result: UploadResult }) {
   const { filename, chunks, summary } = result;
   const [expanded, setExpanded] = useState(true);
+  const hasFollowUps =
+    summary.followUpQuestions &&
+    (summary.followUpQuestions.pcp?.length > 0 || summary.followUpQuestions.specialists?.length > 0);
 
   return (
     <div className="bg-white border border-slate-200 border-l-4 border-l-teal-500 rounded-lg overflow-hidden">
-      {/* Header */}
       <div className="px-5 py-4 flex items-start justify-between gap-4 bg-white border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2 mb-1.5">
@@ -48,7 +83,7 @@ function SummaryCard({ result }: { result: UploadResult }) {
         <button
           onClick={() => setExpanded((v) => !v)}
           className="text-slate-400 hover:text-slate-600 transition-colors p-1"
-          title={expanded ? "Collapse" : "Expand"}
+          title={expanded ? 'Collapse' : 'Expand'}
         >
           {expanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
         </button>
@@ -56,15 +91,24 @@ function SummaryCard({ result }: { result: UploadResult }) {
 
       {expanded && (
         <div className="px-5 py-5 space-y-6 text-sm">
-          {/* Patient info */}
-          {summary.patientInfo !== 'Not specified' && (
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Patient Information</p>
-              <p className="text-slate-700 leading-relaxed">{summary.patientInfo}</p>
+          {/* Patient info — structured grid */}
+          {hasPatientInfo(summary.patientInfo) && (
+            <div className="bg-slate-50 border border-slate-100 rounded-lg px-5 py-4">
+              <div className="flex items-center gap-2 mb-3">
+                <User className="w-4 h-4 text-slate-400" />
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Patient Information</p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3">
+                <PatientInfoField label="Name" value={summary.patientInfo.name} />
+                <PatientInfoField label="Date of Birth" value={summary.patientInfo.dateOfBirth} />
+                <PatientInfoField label="Age" value={summary.patientInfo.age} />
+                <PatientInfoField label="Sex" value={summary.patientInfo.sex} />
+                <PatientInfoField label="Patient ID" value={summary.patientInfo.id} />
+              </div>
             </div>
           )}
 
-          {/* Overall assessment */}
+          {/* Clinical assessment */}
           {summary.overallAssessment && (
             <div className="bg-slate-50 border border-slate-100 rounded-lg px-4 py-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Clinical Assessment</p>
@@ -73,7 +117,6 @@ function SummaryCard({ result }: { result: UploadResult }) {
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Key findings */}
             {summary.keyFindings.length > 0 && (
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Key Findings</p>
@@ -88,7 +131,6 @@ function SummaryCard({ result }: { result: UploadResult }) {
               </div>
             )}
 
-            {/* Diagnoses */}
             {summary.diagnoses.length > 0 && (
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Diagnoses / Conditions</p>
@@ -104,18 +146,73 @@ function SummaryCard({ result }: { result: UploadResult }) {
             )}
           </div>
 
-          {/* Recommendations */}
+          {/* Recommendations with explanations */}
           {summary.recommendations.length > 0 && (
             <div className="pt-2">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Recommendations & Plan</p>
-              <ul className="space-y-2">
+              <div className="space-y-3">
                 {summary.recommendations.map((r, i) => (
-                  <li key={i} className="flex gap-3 text-slate-700 items-start">
-                    <ArrowRight className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{r}</span>
-                  </li>
+                  <div key={i} className="bg-teal-50/50 border border-teal-100 rounded-lg px-4 py-3">
+                    <div className="flex gap-3 items-start">
+                      <ArrowRight className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-slate-900 font-medium leading-snug">{r.title}</p>
+                        {r.explanation && (
+                          <p className="text-slate-600 leading-relaxed mt-1">{r.explanation}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
+            </div>
+          )}
+
+          {/* Follow-up questions — PCP vs specialists */}
+          {hasFollowUps && (
+            <div className="pt-2">
+              <div className="flex items-center gap-2 mb-4">
+                <HelpCircle className="w-4 h-4 text-slate-400" />
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Questions for Your Doctors</p>
+              </div>
+
+              <div className="space-y-4">
+                {summary.followUpQuestions.pcp?.length > 0 && (
+                  <div className="bg-blue-50/60 border border-blue-100 rounded-lg px-4 py-3">
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <User className="w-3.5 h-3.5 text-blue-600" />
+                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Primary Care Provider</p>
+                    </div>
+                    <ul className="space-y-2">
+                      {summary.followUpQuestions.pcp.map((q, i) => (
+                        <li key={i} className="flex gap-2.5 text-slate-700 items-start">
+                          <span className="text-blue-400 font-medium shrink-0 mt-px">?</span>
+                          <span className="leading-relaxed">{q}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {summary.followUpQuestions.specialists?.map((spec, si) => (
+                  spec.questions?.length > 0 && (
+                    <div key={si} className="bg-purple-50/60 border border-purple-100 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-2 mb-2.5">
+                        <Stethoscope className="w-3.5 h-3.5 text-purple-600" />
+                        <p className="text-xs font-semibold uppercase tracking-wider text-purple-700">{spec.specialty}</p>
+                      </div>
+                      <ul className="space-y-2">
+                        {spec.questions.map((q, qi) => (
+                          <li key={qi} className="flex gap-2.5 text-slate-700 items-start">
+                            <span className="text-purple-400 font-medium shrink-0 mt-px">?</span>
+                            <span className="leading-relaxed">{q}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -207,6 +304,16 @@ export default function UploadPage() {
     }
   };
 
+  const showUploadArea = results.length === 0 && !uploading;
+
+  const handleReset = () => {
+    setFiles([]);
+    setResults([]);
+    setErrors([]);
+    setDone(false);
+    setProgressMsg(null);
+  };
+
   return (
     <main className="min-h-[calc(100vh-3.5rem)] bg-[#fafafa] p-8">
       <div className="max-w-3xl mx-auto space-y-8">
@@ -215,76 +322,69 @@ export default function UploadPage() {
           <p className="text-slate-500 text-sm">Add clinical notes, lab results, or imaging reports for analysis.</p>
         </div>
 
-        {/* Drop zone */}
-        <div
-          onDrop={handleDrop}
-          onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-          onDragLeave={() => setDragging(false)}
-          className={`border-2 border-dashed rounded-lg p-12 text-center transition-colors ${
-            dragging ? 'border-teal-500 bg-teal-50/50' : 'border-slate-200 bg-white hover:border-slate-300'
-          }`}
-        >
-          <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
-            <Upload className="w-6 h-6" />
-          </div>
-          <p className="text-slate-700 font-medium mb-1">Click to upload or drag and drop</p>
-          <p className="text-sm text-slate-500 mb-6">PDF, Word, TXT, or Markdown files</p>
-          <label className="cursor-pointer bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-md hover:bg-slate-50 hover:border-slate-300 transition-colors text-sm font-medium shadow-sm">
-            Browse files
-            <input
-              type="file"
-              multiple
-              accept=".pdf,.txt,.md,.doc,.docx"
-              className="hidden"
-              onChange={handleFileSelect}
-            />
-          </label>
-        </div>
-
-        {/* File list */}
-        {files.length > 0 && (
-          <div className="bg-white border border-slate-200 rounded-lg p-5 space-y-4">
-            <h3 className="text-sm font-medium text-slate-900 flex items-center gap-2">
-              <FileText className="w-4 h-4 text-slate-400" />
-              Selected Files ({files.length})
-            </h3>
-            <div className="space-y-2">
-              {files.map((f, i) => (
-                <div key={i} className="flex items-center justify-between bg-slate-50 border border-slate-100 rounded-md px-4 py-3">
-                  <div className="flex items-center gap-3 overflow-hidden">
-                    <File className="w-4 h-4 text-slate-400 shrink-0" />
-                    <span className="text-sm text-slate-700 font-mono truncate">{f.name}</span>
-                  </div>
-                  <button 
-                    onClick={() => removeFile(i)} 
-                    className="text-slate-400 hover:text-red-500 transition-colors p-1"
-                    title="Remove file"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              ))}
+        {showUploadArea && (
+          <>
+            <div
+              onDrop={handleDrop}
+              onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+              onDragLeave={() => setDragging(false)}
+              className={`border-2 border-dashed rounded-lg p-12 text-center transition-colors ${
+                dragging ? 'border-teal-500 bg-teal-50/50' : 'border-slate-200 bg-white hover:border-slate-300'
+              }`}
+            >
+              <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                <Upload className="w-6 h-6" />
+              </div>
+              <p className="text-slate-700 font-medium mb-1">Click to upload or drag and drop</p>
+              <p className="text-sm text-slate-500 mb-6">PDF, Word, TXT, or Markdown files</p>
+              <label className="cursor-pointer bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-md hover:bg-slate-50 hover:border-slate-300 transition-colors text-sm font-medium shadow-sm">
+                Browse files
+                <input
+                  type="file"
+                  multiple
+                  accept=".pdf,.txt,.md,.doc,.docx"
+                  className="hidden"
+                  onChange={handleFileSelect}
+                />
+              </label>
             </div>
-            <div className="pt-2">
-              <button
-                onClick={handleUpload}
-                disabled={uploading}
-                className="w-full bg-teal-600 text-white py-2.5 rounded-md hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium text-sm flex items-center justify-center gap-2 shadow-sm"
-              >
-                {uploading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    Processing Documents...
-                  </>
-                ) : (
-                  <>
+
+            {files.length > 0 && (
+              <div className="bg-white border border-slate-200 rounded-lg p-5 space-y-4">
+                <h3 className="text-sm font-medium text-slate-900 flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-slate-400" />
+                  Selected Files ({files.length})
+                </h3>
+                <div className="space-y-2">
+                  {files.map((f, i) => (
+                    <div key={i} className="flex items-center justify-between bg-slate-50 border border-slate-100 rounded-md px-4 py-3">
+                      <div className="flex items-center gap-3 overflow-hidden">
+                        <File className="w-4 h-4 text-slate-400 shrink-0" />
+                        <span className="text-sm text-slate-700 font-mono truncate">{f.name}</span>
+                      </div>
+                      <button
+                        onClick={() => removeFile(i)}
+                        className="text-slate-400 hover:text-red-500 transition-colors p-1"
+                        title="Remove file"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className="pt-2">
+                  <button
+                    onClick={handleUpload}
+                    disabled={uploading}
+                    className="w-full bg-teal-600 text-white py-2.5 rounded-md hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium text-sm flex items-center justify-center gap-2 shadow-sm"
+                  >
                     <Upload className="w-4 h-4" />
                     Upload and Analyze
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         {/* Live progress indicator */}
@@ -298,7 +398,16 @@ export default function UploadPage() {
         {/* Per-file results with summaries */}
         {results.length > 0 && (
           <div className="space-y-6 mt-8">
-            <h2 className="text-lg font-medium text-slate-900 border-b border-slate-200 pb-2">Analysis Results</h2>
+            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+              <h2 className="text-lg font-medium text-slate-900">Analysis Results</h2>
+              <button
+                onClick={handleReset}
+                className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                Upload another
+              </button>
+            </div>
             <div className="space-y-4">
               {results.map((r) => (
                 <SummaryCard key={r.filename} result={r} />
@@ -325,7 +434,7 @@ export default function UploadPage() {
               <div key={idx} className="flex items-start gap-3 bg-red-50 border border-red-100 rounded-lg p-4 text-red-800 text-sm">
                 <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-mono font-medium block mb-1">{e.filename}</span> 
+                  <span className="font-mono font-medium block mb-1">{e.filename}</span>
                   <span className="opacity-90">{e.message}</span>
                 </div>
               </div>
