@@ -3,6 +3,12 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 
+type IngestEvent =
+  | { type: 'progress'; message: string }
+  | { type: 'result'; filename: string; chunks: number; summary: DocumentSummary }
+  | { type: 'error'; filename: string; message: string }
+  | { type: 'done' };
+
 interface DocumentSummary {
   documentType: string;
   date: string;
@@ -117,8 +123,10 @@ function SummaryCard({ result }: { result: UploadResult }) {
 export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
-  const [results, setResults] = useState<UploadResult[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [progressMsg, setProgressMsg] = useState<string | null>(null);
+  const [results, setResults] = useState<UploadResult[]>([]);
+  const [errors, setErrors] = useState<{ filename: string; message: string }[]>([]);
+  const [done, setDone] = useState(false);
   const [dragging, setDragging] = useState(false);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
@@ -139,22 +147,59 @@ export default function UploadPage() {
   const handleUpload = async () => {
     if (!files.length) return;
     setUploading(true);
-    setError(null);
-    setResults(null);
+    setProgressMsg(null);
+    setResults([]);
+    setErrors([]);
+    setDone(false);
 
     const form = new FormData();
     files.forEach((f) => form.append('files', f));
 
     try {
       const res = await fetch('/api/ingest', { method: 'POST', body: form });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? 'Upload failed');
-      setResults(data.results);
+      if (!res.ok || !res.body) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error((data as { error?: string }).error ?? 'Upload failed');
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done: streamDone, value } = await reader.read();
+        if (streamDone) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n\n');
+        buffer = lines.pop() ?? '';
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          try {
+            const event = JSON.parse(line.slice(6)) as IngestEvent;
+            if (event.type === 'progress') {
+              setProgressMsg(event.message);
+            } else if (event.type === 'result') {
+              setResults((prev) => [...prev, { filename: event.filename, chunks: event.chunks, summary: event.summary }]);
+              setProgressMsg(null);
+            } else if (event.type === 'error') {
+              setErrors((prev) => [...prev, { filename: event.filename, message: event.message }]);
+            } else if (event.type === 'done') {
+              setDone(true);
+            }
+          } catch {
+            // malformed SSE line — skip
+          }
+        }
+      }
+
       setFiles([]);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Something went wrong');
+      setErrors((prev) => [...prev, { filename: 'Upload', message: e instanceof Error ? e.message : 'Something went wrong' }]);
     } finally {
       setUploading(false);
+      setProgressMsg(null);
     }
   };
 
@@ -207,31 +252,45 @@ export default function UploadPage() {
               disabled={uploading}
               className="w-full mt-4 bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
             >
-              {uploading ? '⏳ Processing & generating summary…' : `Upload ${files.length} file${files.length > 1 ? 's' : ''}`}
+              {uploading ? '⏳ Processing…' : `Upload ${files.length} file${files.length > 1 ? 's' : ''}`}
             </button>
           </div>
         )}
 
-        {/* Results with summaries */}
-        {results && (
+        {/* Live progress indicator */}
+        {progressMsg && (
+          <div className="flex items-center gap-3 bg-indigo-50 border border-indigo-200 rounded-2xl px-5 py-4 text-indigo-700 text-sm">
+            <svg className="animate-spin h-4 w-4 shrink-0 text-indigo-500" viewBox="0 0 24 24" fill="none">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            {progressMsg}
+          </div>
+        )}
+
+        {/* Per-file results with summaries */}
+        {results.length > 0 && (
           <div className="space-y-4">
             {results.map((r) => (
               <SummaryCard key={r.filename} result={r} />
             ))}
-            <Link
-              href="/chat"
-              className="block w-full text-center bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition-colors font-medium"
-            >
-              Ask questions about these documents →
-            </Link>
+            {done && (
+              <Link
+                href="/chat"
+                className="block w-full text-center bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition-colors font-medium"
+              >
+                Ask questions about these documents →
+              </Link>
+            )}
           </div>
         )}
 
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-red-700 text-sm">
-            {error}
+        {/* Per-file errors */}
+        {errors.map((e) => (
+          <div key={e.filename} className="bg-red-50 border border-red-200 rounded-2xl p-4 text-red-700 text-sm">
+            <span className="font-medium">{e.filename}:</span> {e.message}
           </div>
-        )}
+        ))}
       </div>
     </main>
   );

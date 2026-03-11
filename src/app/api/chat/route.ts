@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { streamRagAnswer, type ChatMessage } from '@/lib/rag';
 
+export const maxDuration = 60;
+
 export async function POST(req: NextRequest) {
   try {
     const { query, history = [] }: { query: string; history: ChatMessage[] } =
