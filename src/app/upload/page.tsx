@@ -3,9 +3,115 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 
+interface DocumentSummary {
+  documentType: string;
+  date: string;
+  patientInfo: string;
+  keyFindings: string[];
+  diagnoses: string[];
+  recommendations: string[];
+  overallAssessment: string;
+}
+
 interface UploadResult {
   filename: string;
   chunks: number;
+  summary: DocumentSummary;
+}
+
+function SummaryCard({ result }: { result: UploadResult }) {
+  const { filename, chunks, summary } = result;
+  const [expanded, setExpanded] = useState(true);
+
+  return (
+    <div className="bg-white border border-green-200 rounded-2xl shadow-sm overflow-hidden">
+      {/* Header */}
+      <div className="bg-green-50 px-5 py-4 flex items-start justify-between gap-4">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-green-600 text-lg">✅</span>
+            <span className="font-semibold text-green-900 truncate">{filename}</span>
+          </div>
+          <div className="flex gap-3 text-xs text-green-700">
+            <span className="bg-green-100 px-2 py-0.5 rounded-full">{summary.documentType}</span>
+            <span>{chunks} chunks indexed</span>
+            {summary.date !== 'Not specified' && <span>{summary.date}</span>}
+          </div>
+        </div>
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="text-xs text-indigo-600 hover:underline shrink-0 mt-1"
+        >
+          {expanded ? 'Collapse' : 'Expand'} summary
+        </button>
+      </div>
+
+      {expanded && (
+        <div className="px-5 py-4 space-y-4 text-sm">
+          {/* Patient info */}
+          {summary.patientInfo !== 'Not specified' && (
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Patient</p>
+              <p className="text-gray-700">{summary.patientInfo}</p>
+            </div>
+          )}
+
+          {/* Overall assessment */}
+          {summary.overallAssessment && (
+            <div className="bg-indigo-50 border border-indigo-100 rounded-xl px-4 py-3">
+              <p className="text-xs font-semibold uppercase tracking-wide text-indigo-400 mb-1">Assessment</p>
+              <p className="text-indigo-900">{summary.overallAssessment}</p>
+            </div>
+          )}
+
+          {/* Key findings */}
+          {summary.keyFindings.length > 0 && (
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Key Findings</p>
+              <ul className="space-y-1">
+                {summary.keyFindings.map((f, i) => (
+                  <li key={i} className="flex gap-2 text-gray-700">
+                    <span className="text-amber-500 mt-0.5 shrink-0">•</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Diagnoses */}
+          {summary.diagnoses.length > 0 && (
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Diagnoses / Conditions</p>
+              <ul className="space-y-1">
+                {summary.diagnoses.map((d, i) => (
+                  <li key={i} className="flex gap-2 text-gray-700">
+                    <span className="text-red-400 mt-0.5 shrink-0">◆</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Recommendations */}
+          {summary.recommendations.length > 0 && (
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Recommendations</p>
+              <ul className="space-y-1">
+                {summary.recommendations.map((r, i) => (
+                  <li key={i} className="flex gap-2 text-gray-700">
+                    <span className="text-teal-500 mt-0.5 shrink-0">→</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function UploadPage() {
@@ -101,23 +207,22 @@ export default function UploadPage() {
               disabled={uploading}
               className="w-full mt-4 bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
             >
-              {uploading ? 'Processing & indexing…' : `Upload ${files.length} file${files.length > 1 ? 's' : ''}`}
+              {uploading ? '⏳ Processing & generating summary…' : `Upload ${files.length} file${files.length > 1 ? 's' : ''}`}
             </button>
           </div>
         )}
 
-        {/* Results */}
+        {/* Results with summaries */}
         {results && (
-          <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-            <p className="font-semibold text-green-800 mb-3">✅ Successfully ingested:</p>
+          <div className="space-y-4">
             {results.map((r) => (
-              <div key={r.filename} className="flex justify-between text-sm text-green-700">
-                <span>{r.filename}</span>
-                <span>{r.chunks} chunks indexed</span>
-              </div>
+              <SummaryCard key={r.filename} result={r} />
             ))}
-            <Link href="/chat" className="mt-4 inline-block text-indigo-600 hover:underline text-sm font-medium">
-              Start asking questions →
+            <Link
+              href="/chat"
+              className="block w-full text-center bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition-colors font-medium"
+            >
+              Ask questions about these documents →
             </Link>
           </div>
         )}

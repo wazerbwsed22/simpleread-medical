@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { ingestFile } from '@/lib/rag';
+import { ingestFile, type DocumentSummary } from '@/lib/rag';
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,12 +10,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'No files provided' }, { status: 400 });
     }
 
-    const results: { filename: string; chunks: number }[] = [];
+    const results: { filename: string; chunks: number; summary: DocumentSummary }[] = [];
 
     for (const file of files) {
       const buffer = Buffer.from(await file.arrayBuffer());
-      const chunks = await ingestFile(buffer, file.name);
-      results.push({ filename: file.name, chunks });
+      const { chunks, summary } = await ingestFile(buffer, file.name);
+      results.push({ filename: file.name, chunks, summary });
     }
 
     return NextResponse.json({ success: true, results });

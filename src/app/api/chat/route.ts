@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Query is required' }, { status: 400 });
     }
 
-    const { stream, sources } = await streamRagAnswer(query, history);
+    const { textStream, sources } = await streamRagAnswer(query, history);
 
     const encoder = new TextEncoder();
     const readable = new ReadableStream({
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
           encoder.encode(`data: ${JSON.stringify({ type: 'sources', sources })}\n\n`)
         );
 
-        for await (const delta of stream.textStream) {
+        for await (const delta of textStream) {
           controller.enqueue(
             encoder.encode(`data: ${JSON.stringify({ type: 'text', text: delta })}\n\n`)
           );
