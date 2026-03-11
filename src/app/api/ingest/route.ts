@@ -33,8 +33,15 @@ export async function POST(req: NextRequest) {
         controller.enqueue(encode({ type: 'progress', message: `Processing ${file.name}…` }));
         try {
           const buffer = Buffer.from(await file.arrayBuffer());
-          controller.enqueue(encode({ type: 'progress', message: `Indexing & summarising ${file.name}…` }));
-          const { chunks, summary } = await ingestFile(buffer, file.name);
+          const { chunks, summary, summaryError } = await ingestFile(
+            buffer,
+            file.name,
+            (msg) => controller.enqueue(encode({ type: 'progress', message: msg }))
+          );
+          if (summaryError) {
+            // Document was indexed successfully but summarisation failed — surface as a warning
+            controller.enqueue(encode({ type: 'progress', message: `⚠️ Summary unavailable for ${file.name}: ${summaryError}` }));
+          }
           controller.enqueue(encode({ type: 'result', filename: file.name, chunks, summary }));
         } catch (err) {
           const message = err instanceof Error ? err.message : 'Ingestion failed';

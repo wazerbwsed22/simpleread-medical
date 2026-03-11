@@ -78,30 +78,40 @@ async function summarizeDocument(text: string): Promise<DocumentSummary> {
 export interface IngestResult {
   chunks: number;
   summary: DocumentSummary;
+  summaryError?: string;
 }
 
-export async function ingestFile(buffer: Buffer, filename: string): Promise<IngestResult> {
+const FALLBACK_SUMMARY: DocumentSummary = {
+  documentType: 'Medical Document',
+  date: 'Not specified',
+  patientInfo: 'Not specified',
+  keyFindings: [],
+  diagnoses: [],
+  recommendations: [],
+  overallAssessment: 'No content could be extracted from this document.',
+};
+
+/**
+ * onProgress is called between each stage so the API route can stream
+ * granular status updates without blocking on the full result.
+ */
+export async function ingestFile(
+  buffer: Buffer,
+  filename: string,
+  onProgress?: (msg: string) => void
+): Promise<IngestResult> {
+  onProgress?.(`Parsing ${filename}…`);
   const parsedChunks = await parseAndChunkFile(buffer, filename);
 
-  const fallbackSummary: DocumentSummary = {
-    documentType: 'Medical Document',
-    date: 'Not specified',
-    patientInfo: 'Not specified',
-    keyFindings: [],
-    diagnoses: [],
-    recommendations: [],
-    overallAssessment: 'No content could be extracted from this document.',
-  };
-
-  if (parsedChunks.length === 0) return { chunks: 0, summary: fallbackSummary };
+  if (parsedChunks.length === 0) {
+    return { chunks: 0, summary: FALLBACK_SUMMARY };
+  }
 
   const texts = parsedChunks.map((c) => c.text);
 
-  // Run embedding and summarization in parallel
-  const [embeddings, summary] = await Promise.all([
-    embedTexts(texts),
-    summarizeDocument(texts.join('\n\n')),
-  ]);
+  // Embedding is required — let it throw so the caller knows indexing failed
+  onProgress?.(`Generating embeddings for ${filename}…`);
+  const embeddings = await embedTexts(texts);
 
   vectorStore.upsert(
     parsedChunks.map((chunk, i) => ({
@@ -116,7 +126,17 @@ export async function ingestFile(buffer: Buffer, filename: string): Promise<Inge
     }))
   );
 
-  return { chunks: parsedChunks.length, summary };
+  // Summarization is best-effort — a failure still leaves the document indexed
+  onProgress?.(`Summarising ${filename}…`);
+  let summary: DocumentSummary = FALLBACK_SUMMARY;
+  let summaryError: string | undefined;
+  try {
+    summary = await summarizeDocument(texts.join('\n\n'));
+  } catch (err) {
+    summaryError = err instanceof Error ? err.message : String(err);
+  }
+
+  return { chunks: parsedChunks.length, summary, summaryError };
 }
 
 // ─── Retrieval ────────────────────────────────────────────────────────────────
