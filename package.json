@@ -12,6 +12,7 @@
     "@aws-sdk/client-bedrock-runtime": "^3.1006.0",
     "@langchain/textsplitters": "^1.0.1",
     "langchain": "^1.2.30",
+    "lucide-react": "^0.577.0",
     "mammoth": "^1.11.0",
     "next": "16.1.6",
     "pdf-parse": "^1.1.1",
