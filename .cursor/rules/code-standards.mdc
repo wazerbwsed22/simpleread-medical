@@ -1,0 +1,19 @@
+---
+description: "Code organization, style, and TypeScript standards"
+globs:
+alwaysApply: true
+---
+
+# Code Standards
+
+## Organization
+- Extract reusable logic into `util` or `helper` files when it could be used in multiple places
+- Avoid duplicating helper functions across files
+
+## Style
+- Be concise — avoid verbose or redundant code
+- Optimize for performance
+- Use explicit TypeScript types when appropriate (avoid excessive `any` usage)
+
+## Communication
+- Ask clarifying questions if requirements or implementation approach is unclear
